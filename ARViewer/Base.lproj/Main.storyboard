@@ -34,11 +34,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U68-TQ-nwS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="con" translatesAutoresizingMaskIntoConstraints="NO" id="ZkR-8b-UQE">
                                 <rect key="frame" x="162" y="308" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -51,7 +50,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="concentricView" destination="U68-TQ-nwS" id="F99-53-4qS"/>
                         <outlet property="sceneView" destination="hZw-fN-xm5" id="fzd-a4-oL1"/>
                         <outlet property="scoreLabel" destination="qii-hK-aFk" id="k4y-KH-bXr"/>
                     </connections>
@@ -66,4 +64,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="116.49175412293854"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="con" width="224.63999938964844" height="217"/>
+    </resources>
 </document>

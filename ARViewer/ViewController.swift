@@ -15,7 +15,6 @@ import AVFoundation
 class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
-    @IBOutlet weak var concentricView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
     
     var player: AVAudioPlayer!
@@ -48,7 +47,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         self.addNewShip()
         
         self.userScore = 0
-        self.setupConcentric()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,10 +78,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     }
 */
     
-    private func setupConcentric() {
-        self.concentricView.layer.borderWidth = 1.0
-        self.concentricView.layer.borderColor = UIColor.red.cgColor
-    }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
