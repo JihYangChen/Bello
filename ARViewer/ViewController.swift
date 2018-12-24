@@ -55,8 +55,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         // Set the scene to the view
         sceneView.scene = scene
         sceneView.scene.physicsWorld.contactDelegate = self
-        
-        self.addNewShip()
+        for _ in 1...15 {
+            self.addNewShip()
+        }
         
         self.scoreLabel.text = "0"
         self.startView.isHidden = false
@@ -219,7 +220,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     
     func addNewShip() {
         if let scene = SCNScene(named: "art.scnassets/minion.scn"), let cubeNode = scene.rootNode.childNode(withName: "minion", recursively: true) {
-            let posX = floatBetween(-0.5, and: 0.5)
+            let posX = floatBetween(-1.5, and: 1.5)
             let posY = floatBetween(-0.5, and: 0.5  )
             cubeNode.position = SCNVector3(posX, posY, -1) // SceneKit/AR coordinates are in meters
             
@@ -285,7 +286,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { // remove/replace ship after half a second to visualize collision
                 self.removeNodeWithAnimation(contact.nodeA, explosion: true)
-                self.addNewShip()
                 self.addNewShip()
             })
             
