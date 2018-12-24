@@ -16,8 +16,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var finishView: UIView!
+    @IBOutlet weak var againButton: UIButton!
+    @IBOutlet weak var finalscoreLabel: UILabel!
     
     var player: AVAudioPlayer!
+    var timer: Timer!
+    var seconds: Int = 5
     
     private var userScore: Int = 0 {
         didSet {
@@ -35,7 +41,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         sceneView.delegate = self
         
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+//        sceneView.showsStatistics = true
         
         // Create a new empty scene
         let scene = SCNScene()
@@ -47,6 +53,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         self.addNewShip()
         
         self.userScore = 0
+        self.runTimer()
+        self.timerLabel.textColor = UIColor.white
+        self.timerLabel.text = "\(self.seconds)"
+        self.finishView.layer.cornerRadius = 10
+        self.againButton.layer.cornerRadius = 8
+        self.finishView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +79,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         // Release any cached data, images, etc that aren't in use.
     }
 
+    @IBAction func restartButtonTouchUpInside(_ sender: Any) {
+        self.finishView.isHidden = true
+    }
     // MARK: - ARSCNViewDelegate
     
 /*
@@ -92,6 +107,22 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
+    }
+    
+    func runTimer() {
+        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTimer() {
+        self.seconds -= 1     //This will decrement(count down)the seconds.
+        self.timerLabel.text = "\(seconds)" //This will update the label.
+        self.timerLabel.textColor = self.seconds > 10 ? UIColor.white : UIColor.red
+        self.timerLabel.isHidden  = self.seconds < 0
+        if self.seconds == 0 {
+            self.finishView.isHidden = false
+            self.finalscoreLabel.text = self.scoreLabel.text
+            self.timer.invalidate()
+        }
     }
     
 /*
