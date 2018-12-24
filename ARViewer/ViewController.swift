@@ -133,7 +133,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         self.timerLabel.isHidden  = self.seconds < 0
         if self.seconds == 0 {
             self.mask.isHidden = false
-            self.finishView.isHidden = false
+            UIView.transition(with: self.finishView, duration: 0.8, options: UIViewAnimationOptions.transitionFlipFromRight, animations: {
+                self.finishView.isHidden = false
+            }, completion: nil)
             self.finalscoreLabel.text = self.scoreLabel.text
             self.timer.invalidate()
         }
