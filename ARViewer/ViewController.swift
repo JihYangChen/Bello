@@ -24,8 +24,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     
     var player: AVAudioPlayer!
     var timer: Timer!
-    let initSeconds = 5
-    var seconds: Int = 5
+    let initSeconds = 15
+    var seconds: Int = 15
     
     private var userScore: Int = 0 {
         didSet {
@@ -90,6 +90,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         self.mask.isHidden = true
         self.finishView.isHidden = true
         self.scoreLabel.text = "0"
+        self.timerLabel.textColor = UIColor.white
         self.userScore = 0
         self.seconds = self.initSeconds
         self.timerLabel.text = "\(self.initSeconds)"
@@ -129,7 +130,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     @objc func updateTimer() {
         self.seconds -= 1     //This will decrement(count down)the seconds.
         self.timerLabel.text = "\(seconds)" //This will update the label.
-        self.timerLabel.textColor = self.seconds > 10 ? UIColor.white : UIColor.red
+        self.timerLabel.textColor = self.seconds > 5 ? UIColor.white : UIColor.red
         self.timerLabel.isHidden  = self.seconds < 0
         if self.seconds == 0 {
             self.mask.isHidden = false
