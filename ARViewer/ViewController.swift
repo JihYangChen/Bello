@@ -55,8 +55,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         // Set the scene to the view
         sceneView.scene = scene
         sceneView.scene.physicsWorld.contactDelegate = self
-        for _ in 1...15 {
-            self.addNewShip()
+        for _ in 1...21 {
+            self.addNewShip2()
         }
         
         self.scoreLabel.text = "0"
@@ -219,6 +219,23 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     }
     
     func addNewShip() {
+        if let scene = SCNScene(named: "art.scnassets/minion.scn"), let cubeNode = scene.rootNode.childNode(withName: "minion", recursively: true) {
+            let posX = floatBetween(-0.5, and: 0.5)
+            let posY = floatBetween(-0.5, and: 0.5  )
+            cubeNode.position = SCNVector3(posX, posY, -1) // SceneKit/AR coordinates are in meters
+            
+            let box = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0)
+            cubeNode.geometry = box
+            let shape = SCNPhysicsShape(geometry: box, options: nil)
+            cubeNode.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
+            cubeNode.physicsBody?.isAffectedByGravity = false
+            cubeNode.physicsBody?.categoryBitMask = CollisionCategory.ship.rawValue
+            cubeNode.physicsBody?.contactTestBitMask = CollisionCategory.bullets.rawValue
+            sceneView.scene.rootNode.addChildNode(cubeNode)
+        }
+    }
+    
+    func addNewShip2() {
         if let scene = SCNScene(named: "art.scnassets/minion.scn"), let cubeNode = scene.rootNode.childNode(withName: "minion", recursively: true) {
             let posX = floatBetween(-1.5, and: 1.5)
             let posY = floatBetween(-0.5, and: 0.5  )
