@@ -68,7 +68,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
 //        self.finishView.layer.cornerRadius = 10
         self.againButton.layer.cornerRadius = 8
         self.finishView.isHidden = true
-        self.againButton.layer.borderWidth = 1.5
+//        self.againButton.layer.borderWidth = 1.5
         self.againButton.layer.borderColor = UIColor.black.cgColor
     }
     
