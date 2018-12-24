@@ -21,6 +21,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     @IBOutlet weak var againButton: UIButton!
     @IBOutlet weak var finalscoreLabel: UILabel!
     @IBOutlet weak var mask: UIView!
+    @IBOutlet weak var startView: UIView!
+    @IBOutlet weak var startButton: UIButton!
     
     var player: AVAudioPlayer!
     var timer: Timer!
@@ -56,9 +58,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         
         self.addNewShip()
         
-        self.mask.isHidden = true
+        self.scoreLabel.text = "0"
+        self.startView.isHidden = false
+        self.mask.isHidden = false
         self.userScore = 0
-        self.runTimer()
         self.timerLabel.textColor = UIColor.white
         self.timerLabel.text = "\(self.seconds)"
 //        self.finishView.layer.cornerRadius = 10
@@ -86,6 +89,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         // Release any cached data, images, etc that aren't in use.
     }
 
+    @IBAction func startButtonTouchUpInside(_ sender: Any) {
+        self.startView.isHidden = true
+        self.mask.isHidden = true
+        self.runTimer()
+    }
     @IBAction func restartButtonTouchUpInside(_ sender: Any) {
         self.mask.isHidden = true
         self.finishView.isHidden = true

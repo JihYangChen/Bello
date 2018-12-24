@@ -102,6 +102,35 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.9509769029121109" green="0.9509769029121109" blue="0.9509769029121109" alpha="0.93707191780821919" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STl-K5-TFc">
+                                <rect key="frame" x="1" y="212" width="375" height="242"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaA-kN-VSL">
+                                        <rect key="frame" x="159" y="17" width="91" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Find Minions and wipe them out good luck!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vom-UB-euY">
+                                        <rect key="frame" x="27" y="90" width="321" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooE-LA-3pM">
+                                        <rect key="frame" x="152" y="160" width="71" height="71"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="con"/>
+                                        <connections>
+                                            <action selector="startButtonTouchUpInside:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Xcx-T4-Jbg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -119,6 +148,8 @@
                         <outlet property="mask" destination="WAf-L3-Z8l" id="4lt-pv-Wso"/>
                         <outlet property="sceneView" destination="hZw-fN-xm5" id="fzd-a4-oL1"/>
                         <outlet property="scoreLabel" destination="H5h-Oa-BnT" id="T67-a8-ry1"/>
+                        <outlet property="startButton" destination="ooE-LA-3pM" id="4eV-ce-Ar0"/>
+                        <outlet property="startView" destination="STl-K5-TFc" id="7oH-Td-KR3"/>
                         <outlet property="timerLabel" destination="K1D-WS-71b" id="OBS-bT-pUX"/>
                     </connections>
                 </viewController>
