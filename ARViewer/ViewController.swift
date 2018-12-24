@@ -20,16 +20,20 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     @IBOutlet weak var finishView: UIView!
     @IBOutlet weak var againButton: UIButton!
     @IBOutlet weak var finalscoreLabel: UILabel!
+    @IBOutlet weak var mask: UIView!
     
     var player: AVAudioPlayer!
     var timer: Timer!
+    let initSeconds = 5
     var seconds: Int = 5
     
     private var userScore: Int = 0 {
         didSet {
             // ensure UI update runs on main thread
             DispatchQueue.main.async {
-                self.scoreLabel.text = String(self.userScore)
+                if self.mask.isHidden {
+                    self.scoreLabel.text = String(self.userScore)
+                }
             }
         }
     }
@@ -52,13 +56,16 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         
         self.addNewShip()
         
+        self.mask.isHidden = true
         self.userScore = 0
         self.runTimer()
         self.timerLabel.textColor = UIColor.white
         self.timerLabel.text = "\(self.seconds)"
-        self.finishView.layer.cornerRadius = 10
+//        self.finishView.layer.cornerRadius = 10
         self.againButton.layer.cornerRadius = 8
         self.finishView.isHidden = true
+        self.againButton.layer.borderWidth = 1.5
+        self.againButton.layer.borderColor = UIColor.black.cgColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,7 +87,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
     }
 
     @IBAction func restartButtonTouchUpInside(_ sender: Any) {
+        self.mask.isHidden = true
         self.finishView.isHidden = true
+        self.scoreLabel.text = "0"
+        self.userScore = 0
+        self.seconds = self.initSeconds
+        self.timerLabel.text = "\(self.initSeconds)"
+        self.runTimer()
     }
     // MARK: - ARSCNViewDelegate
     
@@ -119,6 +132,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsContactDele
         self.timerLabel.textColor = self.seconds > 10 ? UIColor.white : UIColor.red
         self.timerLabel.isHidden  = self.seconds < 0
         if self.seconds == 0 {
+            self.mask.isHidden = false
             self.finishView.isHidden = false
             self.finalscoreLabel.text = self.scoreLabel.text
             self.timer.invalidate()
