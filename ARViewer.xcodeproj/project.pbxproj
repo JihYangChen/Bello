@@ -19,6 +19,7 @@
 		06DFA2B61F096CBA0009A530 /* torpedo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 06DFA2B31F0968BD0009A530 /* torpedo.mp3 */; };
 		06FA0DB61EE7628F0051FC68 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FA0DB51EE7628F0051FC68 /* Ship.swift */; };
 		06FA0DB81EE763F50051FC68 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FA0DB71EE763F50051FC68 /* Bullet.swift */; };
+		E604B7B721D1E38F003FF118 /* bello.mov in Resources */ = {isa = PBXBuildFile; fileRef = E604B7B621D1E38F003FF118 /* bello.mov */; };
 		E69E076321CF5F6D00052A90 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = E69E076221CF5F6D00052A90 /* art.scnassets */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		06DFA2B31F0968BD0009A530 /* torpedo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = torpedo.mp3; sourceTree = "<group>"; };
 		06FA0DB51EE7628F0051FC68 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
 		06FA0DB71EE763F50051FC68 /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
+		E604B7B621D1E38F003FF118 /* bello.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = bello.mov; sourceTree = "<group>"; };
 		E69E076221CF5F6D00052A90 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,9 +81,10 @@
 				06C51BED1EE68B41006AC09A /* Main.storyboard */,
 				06C51BF01EE68B41006AC09A /* Assets.xcassets */,
 				06C51BF21EE68B41006AC09A /* LaunchScreen.storyboard */,
-				06C51BF51EE68B41006AC09A /* Info.plist */,
 				06DFA2B21F0968BD0009A530 /* collision.mp3 */,
+				06C51BF51EE68B41006AC09A /* Info.plist */,
 				06DFA2B11F0968BD0009A530 /* explosion.mp3 */,
+				E604B7B621D1E38F003FF118 /* bello.mov */,
 				06DFA2B31F0968BD0009A530 /* torpedo.mp3 */,
 				E69E076221CF5F6D00052A90 /* art.scnassets */,
 			);
@@ -153,6 +156,7 @@
 				06DFA2B51F096CB70009A530 /* explosion.mp3 in Resources */,
 				06C51BF11EE68B41006AC09A /* Assets.xcassets in Resources */,
 				E69E076321CF5F6D00052A90 /* art.scnassets in Resources */,
+				E604B7B721D1E38F003FF118 /* bello.mov in Resources */,
 				06DFA2B61F096CBA0009A530 /* torpedo.mp3 in Resources */,
 				06C51BEF1EE68B41006AC09A /* Main.storyboard in Resources */,
 			);
